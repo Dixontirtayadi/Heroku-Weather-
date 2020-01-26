@@ -32,7 +32,7 @@ weatherForm.addEventListener("submit", (e) => {
                 if (forecast.currently.precipProbability === 0) {
                     precipType = "rain"
                 }
-                const summary = "Right now it is " + forecast.currently.summary + ". Currently " + forecast.currently.temperature + " degrees celcius. There is a " + forecast.currently.precipProbability*100 + "% chance of " + precipType 
+                const summary = "Right now it is " + forecast.currently.summary.toLowerCase() + ". Currently " + forecast.currently.temperature + " degrees celcius. There is a " + forecast.currently.precipProbability*100 + "% chance of " + precipType 
     
                 messageOne.textContent = "Forecast on " + data.location
                 messageTwo.textContent = summary
