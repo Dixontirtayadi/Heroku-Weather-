@@ -18,6 +18,7 @@ weatherForm.addEventListener("submit", (e) => {
 
     messageOne.textContent = "Searching..."
     messageTwo.textContent = ""
+    messageThree.textContent = ""
 
     fetch("/weather?address=" + location).then((response) => {
         response.json().then( (data) => {
@@ -26,7 +27,7 @@ weatherForm.addEventListener("submit", (e) => {
             } else {
                 const forecast = data.forecastData
                 precipType = forecast.currently.precipType
-                
+
                 // If the precipProbability is 0, the precipType will not be defined so we need to define it manually
                 if (forecast.currently.precipProbability === 0) {
                     precipType = "rain"
@@ -37,6 +38,7 @@ weatherForm.addEventListener("submit", (e) => {
                 messageTwo.textContent = summary
                 messageThree.textContent = forecast.today.summary + " The high today will be " + forecast.today.temperatureHigh + " with a low of " + data.forecastData.today.temperatureLow
 
+                // TODO: Adds forecast data using icon from forecast.currently.icon
                 // TODO: Make a switch for celcius / fahrenheit button
                 // TODO: Make a degree celcius or fahrenheit symbol
             }
