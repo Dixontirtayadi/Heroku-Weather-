@@ -36,7 +36,7 @@ weatherForm.addEventListener("submit", (e) => {
     
                 messageOne.textContent = "Forecast on " + data.location
                 messageTwo.textContent = summary
-                messageThree.textContent = forecast.today.summary + " The high today will be " + forecast.today.temperatureHigh + " with a low of " + data.forecastData.today.temperatureLow
+                messageThree.textContent = forecast.today.summary + " The high today will be " + forecast.today.temperatureHigh + "°C with a low of " + data.forecastData.today.temperatureLow + "°C"
 
                 // TODO: Adds forecast data using icon from forecast.currently.icon
                 // TODO: Make a switch for celcius / fahrenheit button
