@@ -32,10 +32,10 @@ weatherForm.addEventListener("submit", (e) => {
                 if (forecast.currently.precipProbability === 0) {
                     precipType = "rain"
                 }
-                const summary = "Right now it's " + forecast.currently.summary.toLowerCase() + ". Currently it is " + forecast.currently.temperature + "°C. There is a " + forecast.today.precipProbability*100 + "% chance of " + precipType 
+                const summary = "Right now it's " + forecast.currently.summary.toLowerCase() + ". Currently it is " + forecast.currently.temperature + "°C. There is a " + forecast.currently.precipProbability*100 + "% chance of " + precipType 
     
                 messageOne.textContent = "Forecast on " + data.location
-                messageTwo.textContent = summary + " today."
+                messageTwo.textContent = summary + " in the moment."
                 messageThree.textContent = forecast.today.summary + " The high today will be " + forecast.today.temperatureHigh + "°C with a low of " + forecast.today.temperatureLow + "°C."
             }
         })
