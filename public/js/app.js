@@ -1,24 +1,44 @@
 console.log("Client side javascript file");
 
 const weatherForm = document.querySelector("form")
+const homeWeather = document.getElementById("home")
+const campusWeather = document.getElementById("campus")
+const clearInput = document.getElementById("reset")
 const userInput = document.querySelector("input")
 const messageOne = document.querySelector("#message-1")
 const messageTwo = document.querySelector("#message-2")
 const messageThree = document.querySelector("#message-3")
 
 
+clearInput.onclick = function() {
+    userInput.value = ""
+    messageTwo.textContent = ""
+    messageThree.textContent = ""
+}
+
+homeWeather.onclick = function() {
+    userInput.value = "Robert Eagle Staff Middle School"
+    weatherForm.click()
+}
+
+campusWeather.onclick = function() {
+    userInput.value = "University of Washington"
+    weatherForm.click()
+}
+
 weatherForm.addEventListener("submit", (e) => {
     e.preventDefault()
 
     const location = userInput.value
+    messageTwo.textContent = ""
+    messageThree.textContent = ""
     
     if (location === "") {
         return messageOne.textContent = "Type in an address"
     }
 
     messageOne.textContent = "Searching..."
-    messageTwo.textContent = ""
-    messageThree.textContent = ""
+
 
     fetch("/weather?address=" + location).then((response) => {
         response.json().then( (data) => {
